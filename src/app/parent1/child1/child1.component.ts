@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SharedService} from '../../services/shared.service';
 
 @Component({
   selector: 'app-child1',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Child1Component implements OnInit {
 
-  constructor() { }
+  sharedValue: string;
+
+  constructor(private sharedService: SharedService) {
+    this.sharedValue = this.sharedService.getSharedValue();
+  }
 
   ngOnInit(): void {
   }
